@@ -1,6 +1,6 @@
 
 TITLE: 
-Present - 100% Fully Responsive Free HTML5 Bootstrap Template
+Shift - 100% Fully Responsive Free HTML5 Bootstrap Template
 
 AUTHOR:
 DESIGNED & DEVELOPED by FreeHTML5.co
@@ -18,6 +18,9 @@ http://getbootstrap.com/
 jQuery
 http://jquery.com/
 
+jQuery Easing
+http://gsgd.co.uk/sandbox/jquery/easing/
+
 Modernizr
 http://modernizr.com/
 
@@ -33,5 +36,10 @@ https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT
 animate.css
 http://daneden.me/animate
 
-Masonry
-http://masonry.desandro.com
+jQuery Waypoint
+https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
+
+Demo Images:
+http://unsplash.com
+http://blog.gessato.com
+
