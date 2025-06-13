@@ -1,0 +1,1026 @@
+/* =============================
+    Global Styles
+============================= */
+:root {
+  --primary-color: black; /* Black text */
+  --background-color: #f5f3ef; /* Light background */
+  --text-color: #222; /* Dark text */
+  --heading-font: "Montserrat", Arial, sans-serif;
+  --body-font: "Arial", sans-serif;
+}
+
+/* =============================
+  General Styles
+============================= */
+body {
+  font-family: var(--body-font);
+  font-size: 16px;
+  color: var(--text-color);
+  background: var(--background-color);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+/* =============================
+  Navigation Bar
+============================= */
+.fh5co-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;   /* Both children start bottom-aligned */
+  padding: 0 20px;
+  background: var(--background-color);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  height: 90px;           /* Fixed navbar height */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;     /* For absolute/transform positioning if needed */
+}
+
+/* LOGO CONTAINER: Keeps logo bottom-aligned */
+.fh5co-top-logo {
+  display: flex;
+  align-items: flex-end;  /* Logo container’s content (the image) touches the bottom */
+  height: 100%;
+  transform: translateY(15px);
+  
+}
+
+/* LOGO IMAGE: 80% of navbar height, bottom-aligned */
+.fh5co-top-logo img.nav-logo {
+  height: 90px;           /* 80% of 90px */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* NAV MENU CONTAINER: Shift its content upward by 35px */
+.fh5co-top-menu {
+  display: flex;
+  align-items: center;    /* Initially bottom-aligned */
+  justify-content: flex-end;
+  flex-grow: 1;
+  height: 100%;
+  transform: translateY(-35px);  /* Moves menu items up so they are 35px from the bottom */
+}
+
+/* NAV MENU LIST: Horizontal layout */
+.fh5co-top-menu ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAV MENU ITEMS: Spacing between links */
+.fh5co-top-menu ul li {
+  margin: 0 15px;
+  padding: 0;
+}
+
+/* NAV MENU LINKS: Center text vertically */
+.fh5co-top-menu ul li a {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* RESPONSIVE NAVIGATION */
+@media screen and (max-width: 768px) {
+  .fh5co-nav {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    align-items: center;
+  }
+  .fh5co-top-logo {
+    margin-bottom: 10px;
+    transform: none;
+    align-items: center;
+  }
+  .fh5co-top-menu {
+    transform: none;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+  .fh5co-top-menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .fh5co-top-menu ul li a {
+    height: auto;
+  }
+}
+
+
+
+
+
+/* =============================
+  Footer
+============================= */
+#fh5co-footer {
+  background: #a8a29e; 
+  padding: 40px 0;
+  text-align: center;
+  color: white;
+}
+
+#fh5co-footer p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* =============================
+  Page & Container
+============================= */
+html, body {
+  height: 100%;
+}
+#page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#fh5co-footer {
+  margin-top: auto;
+}
+
+
+
+
+/* =============================
+  Work / Index Page Grid
+============================= */
+#fh5co-work {
+  margin-top: 80px; 
+}
+.work-grid {
+  position: relative;
+  width: 100%;
+  height: 250px; 
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+  border-radius: 12px; 
+  overflow: hidden; 
+}
+.work-grid:hover {
+  transform: scale(1.0);
+  border-radius: 12px;
+}
+.work-grid .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px; 
+}
+.work-grid:hover .inner {
+  opacity: 1;
+}
+.work-grid .desc {
+  color: white;
+  text-align: center;
+}
+.work-grid .desc h3,
+.work-grid .desc span {
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+
+
+/* =============================
+  Image Container & Arrows
+============================= */
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+.arrow {
+  position: absolute;
+  top: 50%;  
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;  
+  background: none; 
+  border: none;     
+  font-size: 2rem;  
+  color: #333;      
+  user-select: none;
+  outline: none;    
+}
+.left-arrow {
+  left: 10px;  
+}
+.right-arrow {
+  right: 10px; 
+}
+.image-container:hover .arrow {
+  opacity: 1; 
+}
+
+/* Large GIF / Media styling */
+.gif-img {
+  width: 100%;  
+  width: 500px;  
+  display: flex;
+  margin: 0 0;
+}
+.gif-section {
+  display: flex;
+  justify-content: center;
+  padding: 0px 0;
+  align-items: center; 
+}
+
+/* The triple-image row with arrows in between */
+.gif-row {
+  margin-top: 50px; 
+  width: 100%; 
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0px 0;
+  align-items: center;
+}
+.gif-row .col-md-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.gif-row .legend {
+  margin-top: auto;
+  text-align: center;
+}
+
+/* Alternate section (two-column) used on Covid page */
+.alternate-section {
+  max-width: 1170px;
+  margin: 0px auto; 
+  display: flex;
+  align-items: flex-start; /* top-aligned instead of center */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.alternate-section .col-md-6 {
+  flex: 1;
+  max-width: 585px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: flex-start; 
+}
+.image-container img {
+  width: 100%;
+  max-width: 585px; 
+  height: auto;
+}
+.subtitle {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.image-description {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+}
+.project-details p,
+.project-long-description p,
+.gif-text,
+.gif-section p,
+.alternate-section p {
+  text-align: justify;
+}
+.legend,
+.image-description {
+  text-align: center;
+  margin: 10px auto 0 auto;
+  display: block;
+  width: auto;
+}
+.gif-row .content-image {
+  width: 100%;
+  max-width: 300px; 
+  height: auto;
+  display: block;
+}
+.gif-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.gif-row .col-md-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.arrow-wrapper {
+  align-self: center; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 40px; 
+}
+.arrow-wrapper i {
+  font-size: 2rem; 
+  color: #333;
+}
+#fh5co-author {
+  margin-top: 50px; 
+}
+.project-details h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.project-long-description {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0px 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* Rounded corners & subtle box-shadow for images, matching the about page style. */
+img,
+.profile-img,
+.gif-img,
+.content-image,
+.image-container img {
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* About Me Preview Section */
+#about-preview {
+  display: flex;
+  justify-content: center;
+  padding: 0px 0; /* vertical spacing */
+}
+
+.about-container {
+  width: 1170px;
+  background: #e5e5e5;      /* light gray background */
+  border-radius: 10px;      /* rounded corners */
+  overflow: hidden;         /* clip inner content */
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 390px 720px;
+  column-gap: 0px;
+  align-items: start;       /* top-align columns */
+  padding: 20px;            /* internal padding */
+}
+
+.about-image img {
+  width: 360px;
+  display: block;
+}
+
+#about-preview .about-text {
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+#about-preview .about-text h2 {
+  width: 100%;
+  margin: 0;
+  font-weight: bold;
+  text-align: left;
+}
+
+#about-preview .about-text p {
+  width: 100%;
+  margin-top: 20px;
+  text-align: justify;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+
+
+/* Learn More Button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 10px;
+  background: #222;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #444;
+}
+
+
+
+
+
+
+/* Adjust text position closer to image */
+/*.profile-img-preview {
+  margin-right: 20px; /* Adjust as needed */
+
+.justified-text {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+.btn-primary {
+  background-color: #222; 
+  border: none;
+  padding: 12px 24px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #444; 
+}
+/*.profile-img-preview {
+  max-width: 250px; 
+  border-radius: 12px; 
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}*/
+.profile-img-full {
+  max-width: 100%; 
+  border-radius: 12px; 
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.row + .row {
+  margin-top: 30px;
+}
+
+/* Only affects the last row in the Projects page */
+.projects-page #fh5co-work .row:last-child {
+  margin-bottom: 40px; /* Adjust as needed */
+}
+
+.more-button {
+  margin: 30px 0; /* Adjust as needed */
+  text-align: center; /* Ensures it stays centered */
+}
+
+/* Gallery Wrapper encloses the container and the controls */
+.gallery-wrapper {
+  width: 400px;
+  margin: 0px 0;
+  /*position: relative;*/
+  box-sizing: border-box;
+}
+
+/* Fixed 450px Square Gallery Container */
+/*.gallery-container {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+/* Gallery Image Container and Image */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.gallery-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+/* In fullscreen mode, center the image and adjust its height */
+.gallery-wrapper:fullscreen .gallery-image,
+.gallery-wrapper:-webkit-full-screen .gallery-image,
+.gallery-wrapper:-ms-fullscreen .gallery-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Reserve space for controls; adjust 100px as needed */
+  height: calc(100vh - 100px);
+}
+.gallery-wrapper:fullscreen .gallery-image img,
+.gallery-wrapper:-webkit-full-screen .gallery-image img,
+.gallery-wrapper:-ms-fullscreen .gallery-image img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Navigation Arrows – hidden by default, appear on hover */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  padding: 5px 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.gallery-container:hover .arrow {
+  opacity: 1;
+}
+.left-arrow {
+  left: 10px;
+}
+.right-arrow {
+  right: 10px;
+}
+
+/* Fullscreen Button – hidden by default, appears on hover */
+.fullscreen-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  padding: 5px 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.gallery-container:hover .fullscreen-btn {
+  opacity: 1;
+}
+
+/* Gallery Controls: Dots and Image Description placed outside the image */
+.gallery-controls {
+  text-align: center;
+  margin-top: 10px;
+}
+.image-indicators {
+  display: inline-block;
+}
+.image-indicators .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 4px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.image-indicators .dot.active {
+  background: #000;
+}
+.image-description {
+  margin-top: 5px;
+  font-size: 16px;
+  color: #333;
+}
+/* Expanded gallery state (simulated fullscreen) */
+.gallery-wrapper.expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: #000;
+  z-index: 9999;
+  border-radius: 10px; /* Rounded corners for the container */
+  overflow: hidden;  /* Clip contents to rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* In expanded state, hide the legend and dots */
+.gallery-wrapper.expanded .gallery-controls {
+  display: none;
+}
+
+/* Ensure the inner container is exactly 800x800px */
+.gallery-wrapper.expanded .gallery-container {
+  width: 700px;
+  height: 700px;
+  position: relative;
+}
+
+/* Force the image container to fill the 800x800 area and center its content */
+.gallery-wrapper.expanded .gallery-image {
+  width: 700px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Force the image to be exactly 800x800px with rounded corners and object-fit: cover */
+.gallery-wrapper.expanded .gallery-image img {
+  width: 700px;
+  height: 700px;
+  object-fit: cover;
+  border-radius: 10px; /* Rounded corners for the image */
+}
+
+/* Default styling for the fullscreen (expand) button */
+.fullscreen-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Styling for the button when in expanded (minimize) state */
+.gallery-wrapper.expanded .fullscreen-btn.minimized {
+  /* Adjust these values as desired */
+  background: rgba(0,0,0,0.8);
+  padding: 8px 12px;
+  font-size: 28px;
+  transform: scaleY(-1); /* Invert the icon for a "minimize" effect */
+}
+
+
+
+
+
+
+/* Media Row for Covid Isolation Hood Page (unchanged) */
+.media-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  width: 100%;
+  max-width: 1170px;
+}
+.media-row .media-item {
+  flex: 1;
+  padding: 10px;
+}
+.media-row .media-item img {
+  width: 100%;
+  height: auto;
+}
+.media-row .arrow-icon {
+  font-size: 30px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Example Project Preview */
+.work-grid {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0px auto;
+  width: 360px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 015px; /* Adjust this value for the desired space between both columns and rows */
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.gallery-wrapper .gallery-controls .image-description {
+  width: 100%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.gallery-wrapper {
+  width: 100%;
+  margin: 0;
+}
+
+/* 1. Ensure that the text in the left column of the alternate section is aligned to the left */
+.alternate-section .col-md-6:first-child {
+  text-align: left; /* Align text to the left */
+}
+
+/* 2. Remove any fixed width and margins from the gallery wrapper in the right column so it fills the column */
+.alternate-section .col-md-6:last-child .gallery-wrapper {
+  width: 100%; /* Make the gallery take the full width of its column */
+  margin:0px;   /* Remove any left/right margin */
+  padding: 0;  /* Remove padding if any */
+}
+
+/* 3. Center the gallery description text within its container */
+.alternate-section .gallery-wrapper .gallery-controls .image-description {
+  text-align: center; /* Center the description */
+}
+
+/* Profile image wrapper to match the gallery width (500px) */
+.profile-img-wrapper {
+  width: 555px;
+  /* Remove any unwanted left margin or padding if present */
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the profile image fills its container */
+.profile-img-wrapper img {
+  width: 100%;
+  max-width: 585px;
+  display: block;
+  margin: 0 auto;
+}
+/* CUSTOM COLUMN GAP FOR ABOUT AND AQUAPONICS PAGES */
+
+/* Use flexbox on your row so you can use the CSS gap property */
+.custom-row {
+  display: flex;
+  gap: 0px; /* This creates a 30px gap between columns */
+  flex-wrap: wrap;
+}
+
+/* Ensure each column grows equally */
+.custom-row > [class*="col-"] {
+  flex: 1;
+}
+
+.col-md-6 > .gallery-wrapper {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Navigation styling */
+.fh5co-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: #f5f3ef;
+  height: 90px;
+  box-sizing: border-box;
+}
+.fh5co-top-logo a {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  text-decoration: none;
+}
+
+/* Container for content sections */
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Consistent styling for image containers */
+.profile-img-wrapper {
+  width: 555px;      /* fixed width for profile image */
+  margin: 0 auto;    /* center the container */
+}
+.profile-img-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* About Me text styling */
+.about-text {
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: justify;
+}
+.about-text h2 {
+  font-size: 22px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/***** Interests Section CSS *****/
+.interests-section {
+  max-width: 585px;   /* Combined maximum width */
+  margin: 0px auto;  /* Center horizontally with vertical spacing */
+  /* No background, border, or shadow */
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.interests-section h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.interests-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.interests-columns ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  width: 48%;   /* Each column occupies roughly half the space */
+}
+
+.interests-columns li {
+  margin-bottom: 10px;
+}
+
+/***** Interests Section CSS *****/
+.skills-section {
+  max-width: 585px;   /* Combined maximum width */
+  margin: 0px auto;  /* Center horizontally with vertical spacing */
+  /* No background, border, or shadow */
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.skills-section h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.skills-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skills-columns ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  width: 48%;   /* Each column occupies roughly half the space */
+}
+
+.skills-columns li {
+  margin-bottom: 10px;
+}
+/*#fh5co-work .container {
+
+  padding-left: 0;
+  padding-right: 0;
+}*
+
+.about-text {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}*/
+.about-text {
+  grid-column: 2;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  justify-self: stretch;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+}
+
+  
+/* Contact Page Specific */
+
+/* The outer container, matching the style of about.html’s main content */
+.contact-container {
+  margin-top: -20px;
+  text-align: left;      /* left-aligned header */
+}
+
+/* Introductory paragraph (small phrase), justified text */
+.contact-intro {
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+/* The light gray box with rounded corners, matching the "about preview" style */
+.contact-box {
+  background-color: #e5e5e5; 
+  border-radius: 10px;
+  padding: 20px;
+  /* Add box-shadow or other styling if desired */
+}
+
+/* Contact list items, remove bullet style, spacing, etc. */
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+}
+.contact-list li {
+  margin-bottom: 10px;
+}
+.contact-list li a {
+  color: #333; /* or your preferred link color */
+  text-decoration: none;
+}
+.contact-list li a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure the video container aligns with your page content */
+.video-container {
+  max-width: 1170px; /* or the width of your main container */
+  margin: 0 auto 30px auto; /* center it and add bottom spacing */
+  position: relative;
+  overflow: hidden;
+}
+
+/* The video itself takes 100% of its container’s width */
+.custom-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: black;
+}
+
+/* Existing rules for video-controls remain unchanged */
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+  opacity: 1;
+}
