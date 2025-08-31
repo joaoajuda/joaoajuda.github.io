@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Helps Portfolio &mdash; StoneForge 3D Printer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FreeHTML5.co" />
+
+	
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"> -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i" rel="stylesheet"> -->
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<!-- Navigation Bar -->
+	<nav class="fh5co-nav">
+		<div class="container">
+			<div class="fh5co-top-logo">
+				<a href="index.html">
+					<img src="images/logo_portfolio_2.png" alt="Helps Designs Logo" class="nav-logo">
+				</a>
+			</div>
+		  	<div class="fh5co-top-menu">
+				<ul>
+			  	<li><a href="projects.html">Projects</a></li>
+			  	<li><a href="about.html">About</a></li>
+			  	<li><a href="contact.html">Contact</a></li>
+				</ul>
+		  	</div>
+		</div>
+	</nav>
+
+	
+	<div id="fh5co-author">
+		<div class="container">
+			<div class="row main-content">
+				<div class="col-md-6 image-viewer">
+					<div class="gallery-wrapper">
+						<div class="gallery-container" data-images='[
+							{"src": "images/StoneForge 3D Printer/IMG_2019.webp"},
+							{"src": "images/StoneForge 3D Printer/stoneforge_marked.webp"},
+							{"src": "images/StoneForge 3D Printer/IMG_2016.webp"},
+							{"src": "images/StoneForge 3D Printer/Z_axis.webp"},
+							{"src": "images/StoneForge 3D Printer/P_x_axis_2.webp"},
+							{"src": "images/StoneForge 3D Printer/X_axis_drive_train_1.webp"},
+							{"src": "images/StoneForge 3D Printer/P_xz_axis_interface.webp"},
+							{"src": "images/StoneForge 3D Printer/P_y_axis_2.webp"},
+							{"src": "images/StoneForge 3D Printer/P_control_console_1.webp"},
+							{"src": "images/StoneForge 3D Printer/IMG_2021.webp"},
+							{"src": "images/StoneForge 3D Printer/StoneForge3D_1.webp"}
+						  ]'>
+						  	<div class="gallery-image">
+								<img src="" alt="Gallery Image">
+								<button class="arrow left-arrow">&#10094;</button>
+								<button class="arrow right-arrow">&#10095;</button>
+								<button class="fullscreen-btn">&#x26F6;</button>
+						  	</div>
+						</div>
+						<div class="gallery-controls">
+						  <div class="image-indicators"></div>
+						  <p class="image-description"></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 project-details">
+					<h2>StoneForge 3D Printer</h2>
+					<p>
+						The StoneForge is a custom-built concrete 3D printer developed as my master’s thesis and ongoing
+						research project. Designed and engineered over two years as a one-man effort, it features a Duet 6XD
+						control system with multiple independent gantries for precise deposition of cementitious mixtures
+						and reinforcement materials. With robust mechanics, scalable architecture, and advanced toolhead
+						integration, StoneForge serves as both a proof of concept and a research platform for pushing the~
+						limits of additive manufacturing in construction.
+
+
+
+						</p>
+					<p><b>Product informations:</b></p>
+					<ul>
+						<li>Dimensions: 3.0 x 2.4 x 2.2 m</li>
+						<li>Build Volume: 1.6 x 1.2 x 1.2 m </li>
+						<li>Number of gantries: 2 (Current prototype with only 1)</li>
+						<li>Modular on Y axis</li>
+						<li>Modular electronics: Duet3 6XD paired with 10 Duet3 1XD boards via CAN BUS-FD</li>
+						<li>Deposition Gantry Toolhead wheight: up to 50Kg</li>
+						<li>Reinforcement Gantry Toolhead wheight: up to 15Kg</li>
+					</ul>
+				</div> 
+				
+					
+					<!-- Modal for Expanded Image -->
+					<div id="imageModal" class="modal">
+						<span class="close" onclick="closeModal()">&times;</span>
+						<button class="arrow modal-left-arrow" onclick="prevImage()">&#10094;</button>
+						<img id="expandedImage" class="modal-content" alt="Expanded Image">
+						<button class="arrow modal-right-arrow" onclick="nextImage()">&#10095;</button>
+					</div>
+				</div>
+
+					<div class="row alternate-section">
+					<!-- Text & Title on the Left -->
+					<div class="col-md-6">
+					  <h4 class="subtitle">StoneForge Control Box</h4>
+					  
+					<p>
+						As part of the <b>StoneForge 3D Printer</b> development, I designed a <b>custom control box</b> positioned 
+						
+						above the <b>main electrical cabinet</b>. This enclosure houses <b>essential operational controls</b>, including a 
+						<b>disconnect switch, power switch, emergency stop, and energy meter</b>.
+					</p>
+					<p>
+						The 3D printed enclosure comprises several components: a <b>two-part main body, a front cover, a top cover, and two rear 
+						cable management covers</b>. To achieve a certain degree of <b>waterproofing</b> at all interfaces, custom <b>3D-printed</b> 
+						<b>TPU O-rings</b> were implemented.
+					</p>
+					<p>
+						The <b>top cover</b> was specifically designed to incorporate a <b>Raspberry Pi 400</b> and a compact <b>mouse pad</b>, 
+						providing an <b>integrated</b> computing solution. Additionally, an <b>11” display</b> is mounted on an <b>adjustable arm</b>
+						fixed to the rear section of the <b>main body</b>, ensuring <b>ergonomic positioning and user comfort</b>. The <b>front cover</b> 
+						provides easy <b>access</b> to essential controls such as the <b>disconnect switch, power button, emergency stop, and energy meter</b>.
+					</p>
+					<p>
+						<b>Design for Additive Manufacturing (DfAM)</b> principles were <b>applied</b> throughout
+						 the development process, <b>minimizing</b> the need for <b>support structures</b> during printing and leveraging the <b>unique 
+						 capabilities</b> of <b>additive manufacturing technology</b>.
+					</p>	
+					</div>
+					
+					<!-- Image Gallery on the Right -->
+					<div class="col-md-6">
+					  <div class="gallery-wrapper">
+						<div class="gallery-container" data-images='[
+							{"src": "images/StoneForge_CB/CB_1.webp"},
+							{"src": "images/StoneForge_CB/CB_2.webp"},
+							{"src": "images/StoneForge_CB/CB_3.webp"},
+							{"src": "images/StoneForge_CB/CB_4.webp"},
+							{"src": "images/StoneForge_CB/CB_5.webp"}
+						  ]'>
+						  <div class="gallery-image">
+							<img src="" alt="Gallery Image">
+							<button class="arrow left-arrow">&#10094;</button>
+							<button class="arrow right-arrow">&#10095;</button>
+							<button class="fullscreen-btn">&#x26F6;</button>
+						  </div>
+						</div>
+						<div class="gallery-controls">
+						  <div class="image-indicators"></div>
+						  <p class="image-description"></p>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  
+				  
+			<!-- Modal for Expanded Image -->
+			<div id="imageModal" class="modal">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<button class="arrow modal-left-arrow" onclick="prevImage()">&#10094;</button>
+				<img id="expandedImage" class="modal-content" alt="Expanded Image">
+				<button class="arrow modal-right-arrow" onclick="nextImage()">&#10095;</button>
+			</div>
+				
+				
+				
+
+
+
+				
+								
+			
+	
+			
+		</div>
+	</div>
+	
+	
+	
+
+
+	
+
+	
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+
