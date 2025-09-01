@@ -992,35 +992,19 @@ html {
   text-decoration: underline;
 }
 
-/* Ensure the video container aligns with your page content */
-.video-container {
-  max-width: 1170px; /* or the width of your main container */
-  margin: 0 auto 30px auto; /* center it and add bottom spacing */
+/* Responsive video (16:9) */
+.video-16x9 {
   position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 9 / 16 = 0.5625 */
   overflow: hidden;
+  background: #000; /* optional: prevents white flash before load */
+  border-radius: 8px; /* optional, matches your rounded style */
 }
-
-/* The video itself takes 100% of its container’s width */
-.custom-video {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: black;
-}
-
-/* Existing rules for video-controls remain unchanged */
-.video-controls {
+.video-16x9 iframe {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-  opacity: 1;
+  height: 100%;
+  border: 0;
 }
