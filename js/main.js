@@ -8,23 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // === Mobile Menu Toggle ===
 function setupMobileMenu() {
     const menuToggle = document.querySelector(".js-fh5co-nav-toggle");
-    const body = document.body;
-    const menu = document.getElementById("fh5co-offcanvas");
+    const menu = document.querySelector(".fh5co-top-menu");
 
     if (!menuToggle || !menu) return;
 
     menuToggle.addEventListener("click", (event) => {
         event.preventDefault();
-        body.classList.toggle("offcanvas");
         menuToggle.classList.toggle("active");
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener("click", (event) => {
-        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-            body.classList.remove("offcanvas");
-            menuToggle.classList.remove("active");
-        }
+        menu.classList.toggle("open");
     });
 }
 
@@ -241,3 +232,47 @@ function setupScrollToTop() {
         }
     });
 }
+
+// --- About page: show RIGHT column before LEFT on mobile ---
+(function () {
+  function isAboutPage() {
+    // Works whether URL is /about.html or /about
+    return /about\.html$/i.test(location.pathname) || document.querySelector('#currentImage');
+  }
+
+  function reorderAboutMobile() {
+    if (!isAboutPage()) return;
+
+    const row = document.querySelector('.row.main-content.custom-row');
+    const leftCol  = row && row.querySelector('.image-viewer.col-md-6');      // LEFT
+    const rightCol = row && row.querySelector('.project-details.col-md-6');   // RIGHT
+    if (!row || !leftCol || !rightCol) return;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    if (isMobile) {
+      // Put RIGHT before LEFT
+      if (rightCol.nextElementSibling !== leftCol) {
+        row.insertBefore(rightCol, leftCol);
+      }
+      // Neutralize Bootstrap floats so stacking order respects the DOM
+      [leftCol, rightCol].forEach(el => {
+        el.style.cssFloat = 'none';
+        el.style.width = '100%';
+      });
+    } else {
+      // Restore desktop order: LEFT then RIGHT
+      if (leftCol.nextElementSibling !== rightCol) {
+        row.insertBefore(leftCol, rightCol);
+      }
+      [leftCol, rightCol].forEach(el => {
+        el.style.cssFloat = '';
+        el.style.width = '';
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', reorderAboutMobile);
+  window.addEventListener('resize', reorderAboutMobile);
+  window.addEventListener('orientationchange', reorderAboutMobile);
+})();

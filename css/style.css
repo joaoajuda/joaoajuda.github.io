@@ -1011,3 +1011,516 @@ html {
   height: 100%;
   border: 0;
 }
+
+/* ==============================
+   Responsive Adjustments
+   ============================== */
+
+/* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  /* Project grid: 2 columns */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* About section stacks */
+  .about-grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  /* Alternate sections (StoneForge, Proteo, etc.) */
+  .alternate-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .alternate-section .col-md-6 {
+    max-width: 100%;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  /* Project grid: 1 column */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Logo alignment fix */
+  .fh5co-top-logo {
+    transform: none;
+    align-items: center;
+    margin: 0;
+  }
+  .fh5co-top-logo img.nav-logo {
+    height: 60px; /* smaller logo */
+  }
+
+  /* Hamburger button */
+  .fh5co-nav-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .fh5co-nav-toggle span,
+  .fh5co-nav-toggle span::before,
+  .fh5co-nav-toggle span::after {
+    display: block;
+    background: #000;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    position: absolute;
+    content: "";
+    transition: all 0.3s ease-in-out;
+  }
+  .fh5co-nav-toggle span {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .fh5co-nav-toggle span::before {
+    top: -8px;
+  }
+  .fh5co-nav-toggle span::after {
+    top: 8px;
+  }
+  .fh5co-nav-toggle.active span {
+    background: transparent;
+  }
+  .fh5co-nav-toggle.active span::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .fh5co-nav-toggle.active span::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  /* Mobile dropdown menu (hidden by default) */
+  .fh5co-top-menu {
+    display: none;
+  }
+  .fh5co-top-menu.open {
+    display: block;
+    position: absolute;
+    top: 70px; /* below nav bar */
+    left: 0;
+    width: 100%;
+    background: #f5f3ef;
+    text-align: center;
+    padding: 15px 0;
+    z-index: 999;
+  }
+  .fh5co-top-menu.open ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .fh5co-top-menu.open li {
+    margin: 10px 0;
+  }
+  .fh5co-top-menu.open a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  /* Make images responsive */
+  .profile-img-wrapper,
+  .about-image img,
+  .image-container img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* About text full width */
+  .about-text {
+    padding: 0 10px;
+    text-align: left;
+  }
+
+  /* Interests and skills stack */
+  .interests-columns,
+  .skills-columns {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  h1, h2, h3 {
+    font-size: 1.2em;
+  }
+  .work-grid {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* ==============================
+   Project Section Layout
+   ============================== */
+.project-section {
+  max-width: 1000px;   /* control width */
+  margin: 40px auto;   /* center + vertical spacing */
+  padding: 0 20px;     /* small side margins */
+}
+
+.project-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.project-images {
+  margin-bottom: 20px;
+}
+
+.project-images img,
+.project-images .gallery-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.project-details {
+  font-size: 16px;
+  line-height: 1.6;
+}
+/* Mobile project title bold + bigger */
+@media (max-width: 768px) {
+  .project-title {
+    font-weight: 700;      /* bold */
+    font-size: 1.8em;      /* bigger than default */
+    text-align: center;    /* keep centered */
+  }
+}
+/* ===== MOBILE ORDER: Title → Gallery → Text (all sections) ===== */
+@media (max-width: 768px) {
+  /* Stack rows vertically on mobile */
+  .row.main-content,
+  .row.custom-row,
+  .alternate-section,
+  .row.gif-section {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* ---------- MAIN SECTIONS (top of project pages) ---------- */
+  /* Flatten .project-details so its children (including <h2>) can be ordered vs the gallery */
+  .row.main-content .project-details,
+  .row.custom-row .project-details {
+    display: contents;
+  }
+
+  /* Title first */
+  .row.main-content .project-details > h2,
+  .row.custom-row .project-details > h2 {
+    order: -2;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  /* Gallery second */
+  .row.main-content .image-viewer,
+  .row.custom-row .image-viewer {
+    order: -1;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /* Then the remaining text */
+  .row.main-content .project-details > *:not(h2),
+  .row.custom-row .project-details > *:not(h2) {
+    order: 0;
+    width: 100%;
+  }
+
+  /* ---------- ALTERNATE SECTIONS (later rows with h4 + gallery) ---------- */
+  /* Flatten both columns so subtitle, gallery, and text share the same flex container */
+  .alternate-section > .col-md-6 {
+    display: contents;
+  }
+
+  /* Subtitle first */
+  .alternate-section .subtitle {
+    order: -2;
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 12px;
+  }
+
+  /* Gallery second (covers both patterns: with .image-viewer or just .gallery-wrapper) */
+  .alternate-section .image-viewer,
+  .alternate-section .gallery-wrapper {
+    order: -1;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /* Then the text in alternate sections */
+  .alternate-section > .col-md-6 > p,
+  .alternate-section > .col-md-6 > ul {
+    order: 0;
+    width: 100%;
+  }
+
+  /* ---------- GIF SECTIONS (Covid “Geometry Dimensioning”) ---------- */
+  .row.gif-section > .col-md-6 { display: contents; }
+  .row.gif-section .subtitle { order: -2; width: 100%; text-align: center; margin: 10px 0 12px; }
+  .row.gif-section img { order: -1; width: 100%; height: auto; margin-bottom: 16px; }
+  .row.gif-section p { order: 0; width: 100%; }
+}
+/* ===== MOBILE CONSISTENT MARGINS ===== */
+@media (max-width: 768px) {
+  /* Apply small padding on all sides of main text and galleries */
+  .project-details,
+  .project-details p,
+  .project-details ul,
+  .project-long-description,
+  .alternate-section,
+  .alternate-section .col-md-6,
+  .row.gif-section,
+  .row.gif-section .col-md-6,
+  .image-viewer,
+  .gallery-wrapper {
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+
+  /* Make galleries scale properly */
+  .gallery-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure images don’t touch edges */
+  .gallery-wrapper img,
+  .image-viewer img,
+  .content-image,
+  .gif-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* ===== MOBILE FIX FOR BULLET LISTS ===== */
+@media (max-width: 768px) {
+  .project-details ul,
+  .alternate-section ul,
+  .project-long-description ul {
+    padding-left: 24px;   /* space for bullets */
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Ensure list items wrap nicely with consistent spacing */
+  .project-details ul li,
+  .alternate-section ul li,
+  .project-long-description ul li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+}
+/* ===== CONSISTENT TEXT STYLING ACROSS PAGES ===== */
+.project-details p,
+.project-details ul,
+.project-long-description p,
+.alternate-section p,
+.gif-text,
+#fh5co-author p {
+  font-family: var(--body-font) !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: var(--text-color) !important;
+  text-align: justify; /* keep consistent justification */
+  margin: 0 0 15px 0;  /* consistent spacing below paragraphs */
+}
+
+/* Lists look like text */
+.project-details ul li,
+.project-long-description ul li,
+.alternate-section ul li {
+  font-family: var(--body-font) !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: var(--text-color) !important;
+}
+
+/* ===== FIX EXTRA MARGIN ON LONG DESCRIPTION (Covid page etc.) ===== */
+.project-long-description {
+  margin-top: 15px;   /* reduce top margin */
+  margin-bottom: 15px; /* reduce bottom margin */
+  padding: 0;          /* remove padding */
+  display: block;      /* instead of flex, to behave like normal text */
+}
+/* ===== COVID: GIF + 2 IMAGES — perfectly collinear bottoms on mobile ===== */
+@media (max-width: 768px) {
+  .gif-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;    /* left/right edges align with page */
+    align-items: flex-start;           /* we'll control heights ourselves */
+    padding: 0 12px;                   /* same edge margin as rest of page */
+    gap: 12px;                         /* same gap as edge margin */
+  }
+
+  /* Remove arrow columns on mobile */
+  .gif-row .arrow-wrapper { display: none !important; }
+
+  /* Three equal columns, no Bootstrap padding */
+  .gif-row .col-md-3 {
+    flex: 1 1 0;
+    max-width: none !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 🔑 Uniform media height so the bottoms are collinear */
+  .gif-row .col-md-3 > img,
+  .gif-row img {
+    width: 100%;
+    height: 36vw !important;   /* uniform height -> bottoms align */
+    min-height: 140px;         /* safeguard on very small phones */
+    max-height: 220px;         /* avoid getting too tall */
+    object-fit: cover;         /* fills box; switch to 'contain' if you prefer no crop */
+    object-position: center bottom;  /* keeps bottoms visually consistent */
+    display: block;
+    margin: 0;                 /* no unexpected gaps above captions */
+  }
+
+  /* Captions */
+  .gif-row .legend {
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.3;
+    text-align: center;
+  }
+}
+
+/* ===== CAPTION CENTERING FIX ===== */
+@media (max-width: 768px) {
+  .gif-row .legend {
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.3;
+    text-align: center !important;  /* center instead of justify */
+    width: 100%;                    /* keeps alignment consistent */
+    display: block;                  /* ensures it spans properly */
+  }
+}
+
+/* ===== ABOUT page: mobile order fix (right column first) ===== */
+@media (max-width: 768px) {
+  /* Target only the About page's row by detecting the profile image wrapper */
+  .custom-row:has(.profile-img-wrapper) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Show the RIGHT column (.project-details) before the LEFT (.image-viewer) */
+  .custom-row:has(.profile-img-wrapper) > .project-details {
+    order: -1 !important;
+  }
+  .custom-row:has(.profile-img-wrapper) > .image-viewer {
+    order: 0 !important;
+  }
+}
+
+.softwares-section {
+  max-width: 585px;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.softwares-section h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.softwares-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.softwares-columns ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  width: 48%;
+}
+
+.softwares-columns li {
+  margin-bottom: 10px;
+}
+
+/* ===== ABOUT page: fix mobile order ===== */
+@media (max-width: 768px) {
+  /* On mobile, image/skills column first */
+  .about-page .custom-row .image-viewer {
+    order: -2; /* show before text */
+  }
+
+  /* About Me text + collaboration after */
+  .about-page .custom-row .project-details {
+    order: -1;
+  }
+
+  /* Inside project-details: About Me title and intro first */
+  .about-page .custom-row .project-details > h2 {
+    order: -1;
+  }
+  .about-page .custom-row .project-details > p:first-of-type {
+    order: 0;
+  }
+
+  /* Rest of the About Me sections */
+  .about-page .custom-row .project-details > h3,
+  .about-page .custom-row .project-details > p,
+  .about-page .custom-row .project-details > ul {
+    order: 1;
+  }
+
+  /* Collaboration always last */
+  .about-page .custom-row .collaboration-section {
+    order: 2;
+  }
+}
+/* ===== Keep skills & interests dual column on mobile ===== */
+@media (max-width: 768px) {
+  .skills-columns,
+  .interests-columns {
+    flex-direction: row !important;
+    justify-content: space-between;
+    gap: 0; /* no vertical stacking gap */
+  }
+
+  .skills-columns ul,
+  .interests-columns ul {
+    width: 48%; /* each half of the width */
+  }
+}
